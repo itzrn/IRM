@@ -1,0 +1,179 @@
+- use to make highly standard robust and scalable API can be created
+
+- This is a framework
+
+
+- What is an API?
+    APIs are mechanisms that enable two software components- such as the frontend
+    and backend of an application- to communicate with each other using a defined
+    set of rules, protocols, and data formats
+
+- When frontend and backend are written in same folder then that architecture is called monolithic architecture.
+        Here the biggest drawback is the application is tightly coupled
+                Means any change in any part will affect the whole application
+
+- FastAPI os a modern, high-performance web framework for building APIs with Python
+
+- FastAPI is build upon Starlette and Pydantic
+    starlette -> it is that component of FASTAPI which handle the request and response
+    pydantic -> It is a data validation lib, checks if the data coming into your API is correct and in the right format.
+
+- Why fastAPI?
+    - It is more better in performance means the response time become fast
+    - It is easy and fast to code (earlier there were many unnecessary and boiler plate code which is need to be written)
+
+- SGI -> Server Gateway Interface
+
+- Gunicorn(The web server used in flask) is a WSGI HTTP server, specifically designed for Python web application
+
+- Uvicorn is the webserver used in fastAPI
+        ASGI(Asynchronous server gateway interface) is another gatway interface used in fastAPI
+        The biggest feature that ASGI have is it can do concurrent processing, means can handle multiple request at a time
+        To implement ASGI, starlette is the lib used
+        This have the feature of async and await of python
+
+- You can give the analogy of waiter in restaurants
+
+- Why fastAPI is fast to code
+    Automatic input validation -> this feature comes from pydantic
+    Auto Generated Interactive Documentation
+    Seamless Integration with modern Ecosystem(ML/DL, JWT, docker etc)
+
+
+- HTTP Methods ->
+            Software
+               /\
+              /  \
+             /    \
+            /      \
+        static    dynamic
+
+        static software means user won't interact much with it, mostly these software are used to receive information's
+            Ex -> Calender
+        dynamic software have much more interaction of user, 2 way communication is also possible
+            Ex -> Ms Excel
+
+            Website
+               /\
+              /  \
+             /    \
+            /      \
+        static    dynamic
+        static website won't interact much with client much. Ex -> blog, govt website
+        dynamic website interact too much by client. Ex -> insta, facebook
+
+                    Http
+                  protocol
+        Client <-----------> Server
+        GET -> wants to retrieve some info
+        POST -> wants to make create interaction
+        PUT -> update interaction
+        DELETE -> to perform delete interaction
+
+
+
+- Path Params
+        Path Parameters are dynamic segments of a URL path used to identify a specific resource
+
+
+- Path
+    The Path() function in FastAPI is used to provide metadata, validation, rules, and documentation hints for path parameters in your API endpoints
+    Title
+    Description
+    Example
+    ge, gt, le, lt
+    Min_length
+    Max_length
+    regex
+
+- HTTP status code
+    These are the 3 digit number returned by a web server(like FastAPI) to indicate the result of a client's request
+    Whenever the server return the response then it add HTTP status code also
+    These number tell what happen with the request the client sent
+
+    Types of status code
+        2XX -> success -> the request was successfully received and processed
+        3XX -> Redirection -> Further action needs to be taken (e.g. redirect)
+        4XX -> Client Error -> Something is wrong with the request from the client
+        5XX -> Server Error -> something went wrong on the server side
+
+
+    Status code
+        200                             -> standard success
+        201 Created                     -> Resource Created
+        204 No Content                  -> Success but no data returned
+        400 Bad Request                 -> Malformed or invalid request
+        401 Unauthorized                -> No/invalid authentication
+        403 Forbidden                   -> Authenticated but no permission
+        404 Not Found                   -> Resource doesn't exist
+        500 Internal Server Error       -> Generic failure
+        502 Bad Gateway                 -> Gateway(like Nginx) failed to reach backend
+        503 Service Unavailable         -> server is down or overloaded
+
+
+- HTTPException is a special built-in-exception in FastAPI used to return custom HTTP error responses
+  when something goes wrong in your API
+        Instead of returning a normal JSON or crashing the server, you can gracefully raise an error with
+            a proper HTTP status code (like 404, 400, 403, etc)
+            a custom error message
+            (optional) extra headers
+
+- From now whenever there is an exception instead of returning a normal JSON
+  we can raise Exception
+
+
+- Query Parameters
+    These are optional key-value pairs appended tot he end od a URL, used to pass additional
+    data to the server in an HTTP request. They are typically employed for operations like filtering, sorting,
+    searching and pagination, without altering the endpoint path itself
+
+    THe ? marks the start of query parameter
+    Each parameters is a key-value pair:key=value
+    multiple parameters are separated by &
+
+- Chronologically means showing something the way it is present
+
+- Query() function
+    Is a utility function provided by FastAPI to declare, validate, and document query parameters in your API endpoints
+
+    It allows you to:
+        set default values
+        Enforce validation rules
+        Add metadata like description, title, examples
+
+    default                 -> Set default value(eg:Query(0))
+    title                   -> Displayed in API docs
+    description             -> Detailed explanation in Swagger
+    example/ examples       -> Provide sample inputs
+    min_length, max_length  -> validation string length
+    ge, gt, le, lt          -> validation numeric bounds
+    regex                   -> Pattern match for strings
+
+
+
+- pydantic
+    its a lib with the help of which data validations are performed
+
+- why pydantic?
+    1. Type hint in python is just a hint if you pass string at place of int it will give no error bcz in python type validation is not strong
+        pydantic gives the type validation at production level
+    2. data validation
+
+- pydantic works in three stages:
+    1. define a pydantic model(class) that represents the ideal schema of the data
+        - This include the expected fields, their types, and any validation constraints(eg:gt=0 for positive numbers)
+    2. Instantiate the model with raw input data(usually a dictionary or JSON-like structure)
+        - pydantic will automatically validate the data ans coerce it into the correct python types (if possible)
+        - if the data doesn't meet the model's requirements, pydantic raise a ValidationError
+    3. Pass the validated model object to functions or use it throughout your codebase
+        - This ensure every part of your program works with clean type-safe, and logically valid data.
+
+- pydantic v2 is written in rust, and it works faster behind the scene
+
+- Request body
+    is the portion of an HTTP request that contains data sent by the client to the server.
+    It is typically used in HTTP methods such as POST, or PUT to transmit structured data(eg JSON, XML, form-data) for
+        the purpose of creating or updating resources on the server.
+    The server parses the request body to extract the necessary and information and perform the intended operation.
+
+
