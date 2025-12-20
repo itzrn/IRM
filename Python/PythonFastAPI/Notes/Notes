@@ -176,4 +176,8 @@
         the purpose of creating or updating resources on the server.
     The server parses the request body to extract the necessary and information and perform the intended operation.
 
-
+- Response Model
+    In fastAPI, a response model defines the structure of the data that your API endpoint will return. It helps in:
+        1. Generating clean API
+        2. Validating output (to your API doesn't return malformed responses)
+        3. Filtering unnecessary data from the response.
