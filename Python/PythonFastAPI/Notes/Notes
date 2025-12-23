@@ -181,3 +181,47 @@
         1. Generating clean API
         2. Validating output (to your API doesn't return malformed responses)
         3. Filtering unnecessary data from the response.
+
+
+- What is Docker?
+    Docker is a platform designed to help developers build, share, and run container applications.
+
+Lets analog it with maggie
+    maggie have two components maggie and masala
+    doesn't matter where you are making it the maggie going to taste the same everywhere
+        let suppose instead of giving maggie masala they gave you the recipe of it, will that going to taste the same?
+        NO, right?
+    so they made a standard masala container and make the taste same every time
+
+    So in the same way software face the issue
+    you made a project and at the time of testing system changes that may create some issue
+    due to the change in OS, change in the lib version and same issue can happen at the time of deployment also
+
+    There was a very need to Standardise it
+    So here docker comes into picture
+
+    so at the time of development only, lock the project in a container and for deployment or for testing
+    instead of sharing project files we share the container which contains all the necessary requirements respect to project
+
+
+- Why do we need Dockers?
+    Problem - Application often behave differently in development, testing and production environment
+              due to variations in configuration, dependencies, and infrastructure
+    Solution - Docker containers encapsulate all the necessary components, ensuring the application
+                runs consistently across all env
+
+    Problem - Running multiple applications on the same host can lead to conflicts, such as
+              dependency clashes or resources contention.
+    Solution -  Docker provides isolated environments for each applications, preventing
+                interference and ensuring stable performance.
+
+    Problem - Scaling applications to handle increased load can be challenging, requiring manual intervention
+              and configuration.
+    Solution - Docker makes it east to scale applications horizontally by running multiple container instances,
+               allowing for quick and efficient scaling.
+
+
+Docker Engine
+    Docker Engine is the core component of the Docker platform, responsible for creating,
+    running and managing Docker containers. It serves as the runtime that powers Docker's
+    containerization capabilities. Here's am in-depth look at the Docker Engine
