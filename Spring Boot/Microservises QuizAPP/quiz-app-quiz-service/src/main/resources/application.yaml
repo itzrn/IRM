@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: quiz-app-quiz-service
+  profiles:
+    active: dev
