@@ -21,6 +21,11 @@ logging:
       darknerd:
         quiz_app_question_service: DEBUG
 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
 
 server:
   servlet:

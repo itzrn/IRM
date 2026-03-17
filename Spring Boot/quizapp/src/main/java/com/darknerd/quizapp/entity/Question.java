@@ -31,7 +31,7 @@ public class Question {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY) // another is eager
     @JoinColumn(name = "difficulty_id", nullable = false)
     private Difficulty difficulty;
 
